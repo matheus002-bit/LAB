@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Adicionar Valores em um Array</title>
+</head>
+<body>
+  <h1>Adicionar Valores em um Array</h1>
+  
+  <form>
+    <label for="valor">Digite um valor:</label>
+    <input type="text" id="valor">
+    <button type="button" onclick="adicionarValor()">Adicionar</button>
+  </form>
+  
+  <h2>Valores Cadastrados:</h2>
+  <ol id="valores"></ol>
+  
+  <script>
+    var arrayValores = [];
+
+    function adicionarValor() {
+      var valor = document.getElementById("valor").value;
+      arrayValores.push(valor);
+      exibirValores();
+    }
+
+    function exibirValores() {
+      var lista = document.getElementById("valores");
+      lista.innerHTML = "";
+
+      arrayValores.sort();
+
+      for (var i = 0; i < arrayValores.length; i++) {
+        var itemLista = document.createElement("li");
+        itemLista.innerText = arrayValores[i];
+        lista.appendChild(itemLista);
+      }
+    }
+  </script>
+</body>
+</html>
